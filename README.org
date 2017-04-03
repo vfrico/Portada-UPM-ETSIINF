@@ -9,6 +9,10 @@
 ** Estilo y formato del Trabajo de Fin de Grado de la UPM ETSIINF
    [[http://www.fi.upm.es/?pagina=1475]]
 
+** Uso
+   Para compilar la memoria, simplemente ejecuta ~make~ y se generará un archivo
+   PDF. Para borrar los archivos de compilación, puedes ejecutar ~make clean~.
+
 ** Licencia
    Cuenta la leyenda que la portada en LaTeX ha ido pasando por generaciones de
    miembros de ACM hasta llegar a mi. Desconozco el autor original y si tenía
