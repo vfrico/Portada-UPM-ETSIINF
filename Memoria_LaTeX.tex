@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article} % La fuente debe ser de 12pt
+\documentclass[a4paper, 12pt]{report} % La fuente debe ser de 12pt
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
@@ -7,20 +7,37 @@
 \usepackage[english, spanish, es-noshorthands, es-tabla]{babel}
 \usepackage[spanish]{translator}
 \usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
-\usepackage{sectsty}
-\usepackage{portada}
+\usepackage{titlesec}
 
-\sectionfont{\MakeUppercase} % Las secciones deben estar en mayúsculas
+% Configuración del capítulo
+\newcommand{\chapterfont}{\sffamily}
+\titleformat{\chapter}[block]
+    {\Huge\bfseries\scshape\chapterfont}{\thechapter}{15pt}{}
+\titleformat{\section}[block]
+    {\Large\bfseries\chapterfont}{\thesection}{15pt}{}
+\titleformat{\subsection}[block]
+    {\bfseries\large\chapterfont }{\thesubsection}{10pt}{}
+\titleformat{\subsubsection}[block]
+    {\bfseries\chapterfont }{}{10pt}{}
+
+
+% Configuracion de la portada
+    \usepackage{portada}
+
+    \Director{Óscar Corcho García}
+    % Por omisión: Madrid
+    \Lugar{Madrid}
+    % Por omisión: TRABAJO FIN DE GRADO
+    \Trabajo{Trabajo Fin de Grado}
+    % Por omisión: Graduado en Ingeniería Informática
+    \Grado{Graduado en Ingeniería Informática}
+
+    \author{Nombre del Alumno}
+    \date{Junio de 2017}
+    \title{Título del trabajo}
+
+% Bibliografía
 \bibliography{\jobname}
-
-\Director{Nombre del Director}
-%\Lugar{Bilbao} % Por omisión: Madrid
-%\Grado{Graduado en Matemáticas e Informática} % Por omisión: Graduado en Ingeniería Informática
-%\Trabajo{TRABAJO FIN DE MÁSTER} % Por omisión: TRABAJO FIN DE GRADO
-
-\author{Nombre del Alumno}
-\date{Enero de 2017}
-\title{Título del trabajo}
 
 \begin{document}
 \maketitle
@@ -54,7 +71,7 @@
 \newpage
 \pagenumbering{arabic} % Iniciamos la numeración árabe en la primera sección
 
-\section{Introducción}
+\chapter{Introducción}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus malesuada
 volutpat. Nam id tortor purus. Aliquam sit amet felis ipsum. Nullam ac ante
@@ -64,19 +81,21 @@ pellentesque lacus. Aliquam sit amet est nec nisl cursus varius. Sed pharetra ac
 neque quis imperdiet. Quisque ac tortor enim. Sed dignissim blandit orci, id
 fermentum lorem commodo eget\cite{Recos}.
 
-\section{Estado del arte}
+\chapter{Estado del arte}
 
-\section{Otra sección}
+\chapter{Un capítulo}
+
+\section{Una sección}
 
 \subsection{Una subsección}
 
-\subsubsection{Otra subsección}
+\subsubsection{Una subsubsección}
 
-\section{Resultados y conclusiones}
+\chapter{Resultados y conclusiones}
 
-\subsection{Pruebas}
+\section{Pruebas}
 
-\subsection{Conclusiones}
+\section{Conclusiones}
 
 \printbibliography[heading=bibnumbered] % Última sección, numerada, para la bibliografía
 \end{document}
