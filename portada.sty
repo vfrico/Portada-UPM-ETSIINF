@@ -5,6 +5,32 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 
+%% Usages:
+%    * defaultbkg: Generates the default background
+%                \usepackage[defaultbkg]{portada}
+%                \usepackage{portada}
+%
+%    * emptybkg: Generates an white background (useful for draft)
+%                \usepackage[emptybkg]{portada}
+
+
+
+% Background image command
+\newcommand{\backgroundimage}{}
+
+%%% Option processing
+\DeclareOption{emptybkg}{
+    \renewcommand{\backgroundimage}{}
+}
+\DeclareOption{defaultbkg}{
+    \renewcommand{\backgroundimage}{
+        \includegraphics[width=1.1\paperwidth,height=1\paperheight]{portada/fondo.png}
+    }
+}
+\ExecuteOptions{defaultbkg}
+\ProcessOptions\relax
+%%% End options processing
+
 \definecolor{PortadaBlue}{HTML}{31489F}
 
 \def\director{Falta \textbackslash{Director\{Nombre de tu director\}}}
@@ -37,7 +63,7 @@
         \parbox[b][\paperheight]{\paperwidth}{
           \vfill
           \centering
-          \includegraphics[width=1.1\paperwidth,height=1\paperheight]{portada/fondo.png}
+            \backgroundimage
           \vfill
         }
       }
