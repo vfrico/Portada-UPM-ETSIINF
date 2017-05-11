@@ -3,11 +3,16 @@
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage[left=3cm, right=3cm, top=3.5cm, bottom=3.5cm]{geometry} % Márgenes recomendados
-\usepackage{times} % La fuente debe ser Times New Romans
 \usepackage[english, spanish, es-noshorthands, es-tabla]{babel}
 \usepackage[spanish]{translator}
 \usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
 \usepackage{titlesec}
+\usepackage{csquotes}
+\usepackage{enumitem}
+
+% Font config
+\usepackage{libertine} % La fuente debería ser Times New Romans {times}
+\usepackage{nimbusmononarrow}
 
 % Configuración del capítulo
 \newcommand{\chapterfont}{\sffamily}
@@ -20,11 +25,16 @@
 \titleformat{\subsubsection}[block]
     {\bfseries\chapterfont }{}{10pt}{}
 
+\newcommand{\estadotarea}[1]{ {\footnotesize\textbf{#1}} }
+
+% Configuración para mostrar figuras
+\usepackage{graphicx}
+\graphicspath{ {figuras/} }
 
 % Configuracion de la portada
-    \usepackage{portada}
+    \usepackage[emptybkg]{portada}
 
-    \Director{Óscar Corcho García}
+    \Director{Nombre del tutor}
     % Por omisión: Madrid
     \Lugar{Madrid}
     % Por omisión: TRABAJO FIN DE GRADO
@@ -32,70 +42,45 @@
     % Por omisión: Graduado en Ingeniería Informática
     \Grado{Graduado en Ingeniería Informática}
 
-    \author{Nombre del Alumno}
-    \date{Junio de 2017}
-    \title{Título del trabajo}
+    \author{Nombre del alumno}
+    \date{Abril de 2017}
+    \title{Título del TFG}
 
 % Bibliografía
-\bibliography{\jobname}
+\bibliography{Memoria_LaTeX}
 
 \begin{document}
-\maketitle
-\null%
-\newpage
 
-\pagenumbering{roman} % La numeración debe ser romana hasta la primera sección
-\tableofcontents
-\newpage
+    % Preámbulo
+    \pagenumbering{roman} % La numeración debe ser romana hasta la primera sección
 
-\listoffigures
-\listoftables
-\newpage
+    \maketitle
+    \tableofcontents
+    \listoffigures
+    \listoftables
 
-\begin{abstract}
-  \normalsize
-  Aquí el texto del abstract.
+    \begin{abstract}
+      \normalsize
+      Aquí el texto del abstract.
 
-  \textbf{Palabras clave:} palabra 1, palabra 2, palabra 3\ldots
-\end{abstract}
+      \textbf{Palabras clave:} palabra 1, palabra 2, palabra 3\ldots
+    \end{abstract}
 
-\begin{otherlanguage}{english}
-  \begin{abstract}
-    \normalsize
-    Here goes the abstract text.
+    \begin{otherlanguage}{english}
+      \begin{abstract}
+        \normalsize
+        Here goes the abstract text.
 
-    \textbf{Keywords:} keyword 1, keyword 2, keyword 3\ldots
-  \end{abstract}
-\end{otherlanguage}
+        \textbf{Keywords:} keyword 1, keyword 2, keyword 3\ldots
+      \end{abstract}
+    \end{otherlanguage}
+    \newpage
 
-\newpage
-\pagenumbering{arabic} % Iniciamos la numeración árabe en la primera sección
+    \pagenumbering{arabic} % Iniciamos la numeración árabe en la primera sección
 
-\chapter{Introducción}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus malesuada
-volutpat. Nam id tortor purus. Aliquam sit amet felis ipsum. Nullam ac ante
-tempus, dignissim dolor a, aliquet nunc. In hac habitasse platea dictumst. In ac
-lacus sit amet velit fringilla pharetra. Duis at cursus erat. Curabitur sed
-pellentesque lacus. Aliquam sit amet est nec nisl cursus varius. Sed pharetra ac
-neque quis imperdiet. Quisque ac tortor enim. Sed dignissim blandit orci, id
-fermentum lorem commodo eget\cite{Recos}.
-
-\chapter{Estado del arte}
-
-\chapter{Un capítulo}
-
-\section{Una sección}
-
-\subsection{Una subsección}
-
-\subsubsection{Una subsubsección}
-
-\chapter{Resultados y conclusiones}
-
-\section{Pruebas}
-
-\section{Conclusiones}
+    %% Input de los distintos capítulos
+    \input{capitulos/introduccion}
+    \input{capitulos/estadodelarte}
 
 \printbibliography[heading=bibnumbered] % Última sección, numerada, para la bibliografía
 \end{document}
