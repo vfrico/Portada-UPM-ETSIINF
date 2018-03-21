@@ -14,3 +14,4 @@
 *.toc
 *.out
 build/
+master/build/

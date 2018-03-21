@@ -1,0 +1,96 @@
+\documentclass[a4paper, 12pt]{report} % La fuente debe ser de 12pt
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[left=3cm, right=3cm, top=3.5cm, bottom=3.5cm]{geometry} % Márgenes recomendados
+\usepackage[english, spanish, es-noshorthands, es-tabla]{babel}
+\usepackage[spanish]{translator}
+\usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
+\usepackage{titlesec}
+\usepackage{csquotes}
+\usepackage{enumitem}
+
+% Font config
+\usepackage{libertine} % La fuente debería ser Times New Romans {times}
+\usepackage{nimbusmononarrow}
+
+% Configuración del capítulo
+\newcommand{\chapterfont}{\sffamily}
+\titleformat{\chapter}[block]
+    {\Huge\bfseries\scshape\chapterfont}{\thechapter}{15pt}{}
+\titleformat{\section}[block]
+    {\Large\bfseries\chapterfont}{\thesection}{15pt}{}
+\titleformat{\subsection}[block]
+    {\bfseries\large\chapterfont }{\thesubsection}{10pt}{}
+\titleformat{\subsubsection}[block]
+    {\bfseries\chapterfont }{}{10pt}{}
+
+\newcommand{\estadotarea}[1]{ {\footnotesize\textbf{#1}} }
+
+% Configuración para mostrar figuras
+\usepackage{graphicx}
+\graphicspath{ {figuras/} }
+
+% Configuración de la portada
+    \usepackage{portada}
+
+    \Director{Nombre del director}
+    % Por omisión: Madrid
+    \Lugar{Madrid}
+    % Por omisión: TRABAJO FIN DE MASTER
+    \Trabajo{Trabajo Fin de Master}
+    % Por omisión: Máster Universitario en Ingeniería Informática
+    \Grado{Máster Universitario en Ingeniería Informática}
+
+    \author{Nombre del alumno}
+    \date{\today}
+    \title{Título del TFG}
+
+    % Bibliografía
+    \bibliography{Memoria_LaTeX}
+
+
+\begin{document}
+
+    % Preámbulo
+    \pagenumbering{roman} % La numeración debe ser romana hasta la primera sección
+
+    \maketitle
+    \tableofcontents
+    \listoffigures
+    \listoftables
+
+    \begin{abstract}
+      \normalsize
+      Aquí el texto del abstract.
+
+      \textbf{Palabras clave:} palabra 1, palabra 2, palabra 3\ldots
+    \end{abstract}
+
+    \begin{otherlanguage}{english}
+      \begin{abstract}
+        \normalsize
+        Here goes the abstract text.
+
+        \textbf{Keywords:} keyword 1, keyword 2, keyword 3\ldots
+      \end{abstract}
+    \end{otherlanguage}
+    \newpage
+
+    \pagenumbering{arabic} % Iniciamos la numeración árabe en la primera sección
+
+    %% Input de los distintos capítulos
+    \input{capitulos/introduccion}
+    \input{capitulos/estadodelarte}
+    \input{capitulos/metodologiateorica}
+    \input{capitulos/implementacion}
+    \input{capitulos/resultados}
+    \input{capitulos/conclusiones}
+
+    \printbibliography[heading=bibnumbered] % Última sección, numerada, para la bibliografía
+
+
+\appendix
+\input{capitulos/anexos}
+
+\end{document}
