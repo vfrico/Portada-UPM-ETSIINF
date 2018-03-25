@@ -13,5 +13,5 @@
 *.run.xml
 *.toc
 *.out
-build/
-master/build/
+Grado_GII/build/
+Master_MUII/build/

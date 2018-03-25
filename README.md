@@ -1,31 +1,58 @@
 # Portada UPM ETSIINF
 
-Este paquete para LaTeX hace que el `\maketitle` de LaTeX produzca la portada
-con el estilo la UPM ETSIINF.
+En este repositorio encontrarás plantillas para desarrollar tanto el Trabajo de
+Fin de Grado (TFG) como el Trabajo de Fin de Máster (TFM) de la Escuela Técnica
+Superior de Ingenieros Informáticos de la Universidad Politécnica de Madrid,
+también conocida como ETSIINF.
 
-Además se incluyen dos ejemplos, en LaTeX y en org-mode, de uso y
-configuración de la portada que, además, cumplen con los estilos marcados
-por la Escuela para los Trabajos de Fin de Grado y Trabajo fin de Master
-(en la carpeta **/master**).
+## Plantillas disponibles
 
-## Estilo y formato del Trabajo de Fin de Grado de la UPM ETSIINF
-[http://www.fi.upm.es/?pagina=1475]()
+Este repositorio empezó con una plantilla para el grado, con el tiempo ha ido
+creciendo. Están disponibles las siguientes plantillas
 
-## Estilo y formato del Trabajo de Fin de Master de la UPM ETSIINF
-[http://www.fi.upm.es/docs/estudios/muii/1957_Guia_elaboracion_TFMUII.pdf]()
+## Grado en Ingeniería Informática (GII)
+La plantilla para el Trabajo de Fin de Grado en Ingeniería Informática está en
+la carpeta `Grado_GII/`.
+
+Cumple con lo estipulado en [la web de la escuela](http://www.fi.upm.es/?pagina=1475).
+
+### Máster en Ingeniería Informática (MUII):
+La plantilla para el Trabajo de Fin de Máster en Ingeniería Informática está en
+la carpeta `Master_MUII/`
+
+Cumple con lo estipulado en [la web de la escuela](http://www.fi.upm.es/docs/estudios/muii/1957_Guia_elaboracion_TFMUII.pdf).
+
+## Uso
+Cada uno de los proyectos contienen un paquete para LaTeX que se llama
+`portada.sty`, que hace que el `\maketitle` de LaTeX produzca la portada
+con el estilo la UPM ETSIINF correspondiente.
+
+Además se incluye un ejemplo de uso y configuración de la portada. Para facilitar
+el desarrollo de la memoria (sobre todo en Linux) se ha incluido un Makefile en
+los proyectos que permite generar el PDF usando `make`.
+
+Todos los ficheros que se generan de la compilación LaTeX se guardan en la
+carpeta `build/`, que git ignora. Aún así se pueden eliminar usando `make clean`
+
 
 ## Prerequisitos
-Antes de poder compilar con latex es necesario tener instalado latex así
+Antes de poder compilar el proyecto es necesario tener instalado LaTeX así
 como algunas dependencias.
+
+Para Ubuntu y derivados
 ```
 sudo apt-get install texlive-full biber
 ```
 
-## Uso
-Para compilar la memoria, simplemente ejecuta `make` y se generará un archivo
-PDF. Para borrar los archivos de compilación, puedes ejecutar `make clean`.
+Para Arch y derivados
+```
+sudo pacman -S texlive-core texlive-latexextra texlive-bibtexextra biber texlive-fontsextra
+```
 
 ## Licencia
+Este repositorio es un fork de https://github.com/skgsergio/Portada-UPM-ETSIINF,
+donde figura la siguiente *Licencia*:
+```
 Cuenta la leyenda que la portada en LaTeX ha ido pasando por generaciones de
 miembros de ACM hasta llegar a mi. Desconozco el autor original y si tenía
 licencia.
@@ -38,3 +65,4 @@ podido ya que ni el docx y svg de referencia de la escuela coinciden al
 
 Total, todo este rollo para deciros que hagáis lo que os de la gana, podéis
 tratar de vendérselo a alguien pero creo que no va a colar eh.
+```
